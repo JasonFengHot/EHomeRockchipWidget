@@ -1,6 +1,7 @@
 package com.ehome.rockchip.vendor.sample;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +19,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void get(View view) {
-        mManager.getSerialNumber();
+       String sn =  mManager.getSerialNumber();
+
+        Log.d("RockchipStorageManager", "sn -> " + sn);
 
     }
 }

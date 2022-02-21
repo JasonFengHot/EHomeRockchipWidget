@@ -52,6 +52,7 @@ std::string vendor_storage_read_sn() {
     int sys_fd = open("/dev/vendor_storage", O_RDONLY, 0);
     if (sys_fd < 0) {
         LOGE("/dev/vendor_storage open fail !");
+        return "NULL";
     }
 
     req.tag = VENDOR_REQ_TAG;
@@ -66,6 +67,7 @@ std::string vendor_storage_read_sn() {
     /* return req->len is the real data length stored in the NV-storage */
     if (ret) {
         LOGE("/dev/vendor_storage read error\n");
+        return "NULL";
     }
 
     //get the sn length
