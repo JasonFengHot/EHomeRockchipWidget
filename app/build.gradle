@@ -8,9 +8,9 @@ android {
     defaultConfig {
         minSdk 21
         targetSdk 32
-        versionCode 1
-        versionName "1.0"
-        applicationId "com.ehome.rockchip.vendor.sample"
+        versionCode 999999
+        versionName "999.999"
+        applicationId "xcg.ehomepoct.io.zzcapp"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -28,6 +28,26 @@ android {
             storeFile file('platform.keystore')
             storePassword 'pc@ehome'
             keyPassword 'pc@ehome'
+        }
+
+        sign {
+            keyAlias 'aa'
+            keyPassword '123456'
+            storeFile file('../xuechanggui.jks')
+            storePassword '123456'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.sign
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.sign
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
